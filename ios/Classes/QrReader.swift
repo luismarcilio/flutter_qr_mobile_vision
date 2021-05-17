@@ -121,10 +121,7 @@ class QrReader: NSObject {
     self.textureRegistry = textureRegistry
     self.qrCallback = qrCallback
     
-    self.barcodeDetector = BarcodeScanner.getClient(
-          new BarcodeScannerOptions.Builder()
-              .setBarcodeFormats(Barcode.FORMAT_QR_CODE)
-              .build())
+    self.barcodeDetector = BarcodeScanner.barcodeScanner(options: BarcodeScannerOptions(formats: BarcodeFormat(rawValue: 0x0100)))
     
     super.init()
     
